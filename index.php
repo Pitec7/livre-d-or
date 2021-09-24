@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <body class="d-flex justify-content-center align-items-center bg-dark">
-    <form class="col-8 col-sm-7 col-md-5 col-lg-3 bg-light mt-5 p-3 rounded-3" action="livre_or_liste_messages.php" method="post">
+    <form class="col-8 col-sm-7 col-md-5 col-lg-4 bg-light mt-5 p-3 rounded-3" action="livre_or_liste_messages.php" method="post">
         <fieldset>
             <legend class="fs-2 fw-bold fst-italic text-decoration-underline text-success">Laissez vos traces...</legend>
             <div class="my-3">
@@ -32,8 +32,8 @@ session_start();
                 <textarea class="form-control" name="message" id="message" rows="5" placeholder="Laissez votre joli messsage ici. ;)"></textarea>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-primary col-3 mx-3 text-white">Envoyer</button>
-                <button typy="button" class="btn btn-primary col-3 mx-3"><a href="livre_or_liste_messages.php" class="text-white text-decoration-none">Annuler</a></button>
+                <button type="submit" class="btn btn-primary col-6 col-sm-4 col-md-3 mb-3 mb-sm-0 mx-3 mx-md-4 mx-xxl-5 text-white">Envoyer</button>
+                <button typy="button" class="btn btn-primary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5"><a href="livre_or_liste_messages.php" class="text-white text-decoration-none">Annuler</a></button>
             </div>
         </fieldset>
     </form>
