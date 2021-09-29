@@ -16,20 +16,20 @@ session_start();
 </head>
 
 <body class="d-flex justify-content-center align-items-center bg-dark">
-    <form class="col-8 col-sm-7 col-md-5 col-lg-4 bg-light mt-5 p-3 rounded-3" action="livre_or_liste_messages.php" method="post">
+    <form class="col-8 col-sm-7 col-md-5 col-lg-4 bg-light mt-5 p-3 rounded-3" action="livre_or_liste_messages_post.php" method="post">
         <fieldset>
             <legend class="fs-2 fw-bold fst-italic text-decoration-underline text-success">Laissez vos traces...</legend>
             <div class="my-3">
                 <label for="auteur" class="form-label">Auteur</label>
-                <input type="text" class="form-control" name="auteur" id="auteur" />
+                <input type="text" class="form-control" name="auteur" id="auteur" required/>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email" id="email" pattern="/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" />
+                <input type="email" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
             </div>
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Laissez votre joli messsage ici. ;)"></textarea>
+                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Écrivez votre joli messsage ici. ;)" required></textarea>
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-primary col-6 col-sm-4 col-md-3 mb-3 mb-sm-0 mx-3 mx-md-4 mx-xxl-5 text-white">Envoyer</button>
