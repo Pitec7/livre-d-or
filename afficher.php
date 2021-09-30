@@ -14,24 +14,47 @@ catch (Exception $e)
 }
 
 // On récupère le message insérer par l'utilisateur
-
-if (isset($_POST['auteur']) AND isset($_POST['email']) AND isset($_POST['message']))
+if (isset($_POST['auteur']) AND isset($_POST['email']) AND isset($_POST['message']) AND !isset($_POST['id_message_modifier']))
 {
     $nom_auteur = htmlspecialchars($_POST['auteur']);
     $e_mail = htmlspecialchars($_POST['email']);
     $message_laisse = htmlspecialchars($_POST['message']);
+    $timestamp = date("Y-m-d H:i:s");
 
     // On insère le message dans la base de donnée
-    $req = $bdd->prepare('INSERT INTO message(auteur, email, message) VALUES(:auteur, :email, :message)');
+    $req = $bdd->prepare('INSERT INTO message(auteur, email, date_enregistrement, message) VALUES(:auteur, :email, :date_enregistrement, :message)');
     $req->execute(array(
         'auteur' => $nom_auteur,
         'email' => $e_mail,
+        'date_enregistrement' => $timestamp,
         'message' => $message_laisse,
     ));
 }
+else
+{
+    if (isset($_POST['auteur']) AND isset($_POST['email']) AND isset($_POST['message']) AND isset($_POST['id_message_modifier']))
+    {
+        $nom_auteur = htmlspecialchars($_POST['auteur']);
+        $e_mail = htmlspecialchars($_POST['email']);
+        $message_laisse = htmlspecialchars($_POST['message']);
+        $timestamp = date("Y-m-d H:i:s");
+        $id = (int) $_POST['id_message_modifier'];
+
+    // On modifie le message dans la base de donnée
+    $req = $bdd->prepare('UPDATE message SET auteur = :newauteur, email = :newemail, date_enregistrement = :newdate_enregistrement, message = :newmessage WHERE id = :newid');
+    $req->execute(array(
+        'newauteur' => $nom_auteur,
+        'newemail' => $e_mail,
+        'newdate_enregistrement' => $timestamp,
+        'newmessage' => $message_laisse,
+        'newid' => $id
+    ));
+}
+}
+
 
 // On récupère le contenu de la table message dans l'ordre décroissant selon ID
-$reponse = $bdd->query('SELECT auteur, email, date_enregistrement, message FROM message ORDER BY ID DESC');
+$reponse = $bdd->query('SELECT * FROM message ORDER BY id DESC') or die(print_r($bdd->errorInfo()));
 
 // On enregistre les messages dans l'array "$_SESSION['message'] qui contient des array "[$_SESSION['nombre']]"
 $nombre_message = 0;

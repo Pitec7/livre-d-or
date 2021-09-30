@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <body class="d-flex justify-content-center align-items-center bg-dark">
-    <form class="col-8 col-sm-7 col-md-5 col-lg-4 bg-light mt-5 p-3 rounded-3" action="livre_or_liste_messages_post.php" method="post">
+    <form class="col-8 col-sm-7 col-md-5 col-lg-4 bg-light mt-5 p-3 rounded-3" action="afficher.php" method="post">
         <fieldset>
             <legend class="fs-2 fw-bold fst-italic text-decoration-underline text-success">Laissez vos traces...</legend>
             <div class="my-3">
