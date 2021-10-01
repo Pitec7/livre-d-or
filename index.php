@@ -1,8 +1,3 @@
-<?php
-// Démarrage de la session
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,11 +16,11 @@ session_start();
             <legend class="fs-2 fw-bold fst-italic text-decoration-underline text-success">Laissez vos traces...</legend>
             <div class="my-3">
                 <label for="auteur" class="form-label">Auteur</label>
-                <input type="text" class="form-control" name="auteur" id="auteur" required/>
+                <input type="text" class="form-control" name="auteur" id="auteur" required />
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+                <input type="email" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
             </div>
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
@@ -33,7 +28,7 @@ session_start();
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-primary col-6 col-sm-4 col-md-3 mb-3 mb-sm-0 mx-3 mx-md-4 mx-xxl-5 text-white">Envoyer</button>
-                <button typy="button" class="btn btn-primary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5"><a href="livre_or_liste_messages.php" class="text-white text-decoration-none">Annuler</a></button>
+                <a class="btn btn-primary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5 text-white text-decoration-none" href="livre_or_liste_messages.php">Annuler</a>
             </div>
         </fieldset>
     </form>

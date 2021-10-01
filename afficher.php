@@ -30,6 +30,7 @@ if (isset($_POST['auteur']) AND isset($_POST['email']) AND isset($_POST['message
         'message' => $message_laisse,
     ));
 }
+// Sinon il s'agit d'une modification et on modifie le message existant
 else
 {
     if (isset($_POST['auteur']) AND isset($_POST['email']) AND isset($_POST['message']) AND isset($_POST['id_message_modifier']))
@@ -40,16 +41,16 @@ else
         $timestamp = date("Y-m-d H:i:s");
         $id = (int) $_POST['id_message_modifier'];
 
-    // On modifie le message dans la base de donnée
-    $req = $bdd->prepare('UPDATE message SET auteur = :newauteur, email = :newemail, date_enregistrement = :newdate_enregistrement, message = :newmessage WHERE id = :newid');
-    $req->execute(array(
-        'newauteur' => $nom_auteur,
-        'newemail' => $e_mail,
-        'newdate_enregistrement' => $timestamp,
-        'newmessage' => $message_laisse,
-        'newid' => $id
-    ));
-}
+        // On modifie le message dans la base de donnée
+        $req = $bdd->prepare('UPDATE message SET auteur = :newauteur, email = :newemail, date_enregistrement = :newdate_enregistrement, message = :newmessage WHERE id = :newid');
+        $req->execute(array(
+            'newauteur' => $nom_auteur,
+            'newemail' => $e_mail,
+            'newdate_enregistrement' => $timestamp,
+            'newmessage' => $message_laisse,
+            'newid' => $id
+        ));
+    }
 }
 
 
