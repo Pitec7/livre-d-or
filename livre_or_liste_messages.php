@@ -21,7 +21,7 @@ session_start();
         <fieldset>
         <legend class="mx-3 mb-4 fs-2 fw-bold fst-italic text-decoration-underline text-success">Pépites</legend>
         <div class="mx-3">
-            <a href="index.php"><button type="button" class="btn btn-outline-success"><i class="bi bi-plus"></i>Je veux laisser un message</button></a>
+            <a href="index.php"><button type="button" class="btn btn-primary"><i class="bi bi-plus"></i>Je veux laisser un message</button></a>
         </div>
         <?php
         for ($i = 0; $i < $_SESSION['nombre']; $i++)
@@ -38,7 +38,7 @@ session_start();
                 <i class="bi bi-clock"></i><?php echo $_SESSION['message'][$i]['date_enregistrement']; ?>
             </div>
             <div class="col-12 col-sm-5 col-lg-1">
-                <a href="supprimer.php?id_message=<?php echo $_SESSION['message'][$i]['id']; ?>"><i class="bi bi-trash"></i></a>
+                <a class="text-danger" href="supprimer.php?id_message=<?php echo $_SESSION['message'][$i]['id']; ?>"><i class="bi bi-trash"></i></a>
             </div>
             <div class="pt-2 col-12 text-break">
                 <a class="text-decoration-none text-reset" href="modifier.php?id_message=<?php echo $_SESSION['message'][$i]['id']; ?>"><?php echo $_SESSION['message'][$i]['message']; ?></a>

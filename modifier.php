@@ -1,6 +1,4 @@
 <?php
-// Démarrage de la session
-session_start();
 
 try
 {
@@ -20,7 +18,7 @@ if(isset($_GET['id_message']))
     $_GET['id_message'] = (int) $_GET['id_message'];
 
     // Le nombre doit être plus grand que 0
-    if($_GET['id_message'] > 0);
+    if($_GET['id_message'] > 0)
     {
         $req = $bdd->prepare('SELECT * FROM message WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($_GET['id_message']));
@@ -59,7 +57,7 @@ if(isset($_GET['id_message']))
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-primary col-6 col-sm-4 col-md-3 mb-3 mb-sm-0 mx-3 mx-md-4 mx-xxl-5 text-white">Modifier</button>
-                <button typy="button" class="btn btn-primary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5"><a href="livre_or_liste_messages.php" class="text-white text-decoration-none">Annuler</a></button>
+                <a class="btn btn-secondary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5 text-white text-decoration-none" href="livre_or_liste_messages.php">Annuler</a>
                 <input type="hidden" id="id_message_modifier" name="id_message_modifier" value="<?php echo $message_recuperer['id']; ?>"/>
             </div>
         </fieldset>
@@ -74,6 +72,7 @@ if(isset($_GET['id_message']))
     }
 }
 
+// On ferme la requête
 $req->closeCursor();
 
 ?>

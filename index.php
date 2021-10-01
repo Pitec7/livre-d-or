@@ -28,7 +28,7 @@
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-primary col-6 col-sm-4 col-md-3 mb-3 mb-sm-0 mx-3 mx-md-4 mx-xxl-5 text-white">Envoyer</button>
-                <a class="btn btn-primary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5 text-white text-decoration-none" href="livre_or_liste_messages.php">Annuler</a>
+                <a class="btn btn-secondary col-6 col-sm-4 col-md-3 mx-3 mx-md-4 mx-xxl-5 text-white text-decoration-none" href="livre_or_liste_messages.php">Annuler</a>
             </div>
         </fieldset>
     </form>
